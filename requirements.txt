@@ -1,0 +1,12 @@
+# requirements.txt
+# ─────────────────────────────────────────────────────────────
+# These are all the Python packages this app depends on.
+# Run:  pip install -r requirements.txt
+# to install them all at once before running the app locally,
+# or simply commit this file to GitHub and Streamlit Cloud
+# will install them automatically during deployment.
+# ─────────────────────────────────────────────────────────────
+
+streamlit>=1.32.0      # The web app framework
+gTTS>=2.5.0            # Google Text-to-Speech (requires internet)
+pdfplumber>=0.11.0     # PDF text extraction

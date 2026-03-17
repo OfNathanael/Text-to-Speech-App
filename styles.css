@@ -1,0 +1,182 @@
+/* ── Root variables ─────────────────────────────────────── */
+  :root {
+    --navy:      #0D1B2A;
+    --navy-mid:  #1A2F45;
+    --navy-soft: #243B55;
+    --cream:     #F5F0E8;
+    --cream-dark:#EDE6D6;
+    --gold:      #C9A84C;
+    --gold-light:#E8C97A;
+    --text:      #1A1A2E;
+    --muted:     #6B7A8D;
+    --white:     #FFFFFF;
+    --success:   #2D7A4F;
+    --warn:      #8B5E00;
+    --radius:    12px;
+    --shadow:    0 8px 32px rgba(13,27,42,0.12);
+  }
+
+  /* ── Global reset & body ────────────────────────────────── */
+  .stApp {
+    background: linear-gradient(160deg, #EAE4D8 0%, #F5F0E8 40%, #E8EDF5 100%);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* Hide Streamlit chrome we don't need */
+  #MainMenu, footer, header { visibility: hidden; }
+  .stDeployButton { display: none; }
+  .block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 4rem !important;
+    max-width: 760px !important;
+  }
+
+  /* ── Hero header ────────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+    border-radius: 20px;
+    padding: 3rem 2.5rem 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-icon { font-size: 3.2rem; display: block; margin-bottom: 0.75rem; }
+  .hero h1 {
+    font-family: 'Lora', serif !important;
+    font-size: 2.4rem !important;
+    font-weight: 700 !important;
+    color: var(--cream) !important;
+    margin: 0 0 0.5rem 0 !important;
+    line-height: 1.2 !important;
+  }
+  .hero p {
+    font-size: 1rem; color: rgba(245,240,232,0.7);
+    margin: 0; font-weight: 300;
+  }
+  .hero-rule {
+    width: 48px; height: 3px;
+    background: var(--gold); border-radius: 2px; margin: 1rem 0;
+  }
+
+  /* ── Step labels ─────────────────────────────────────────── */
+  .step-label {
+    display: flex; align-items: center; gap: 0.7rem;
+    margin: 1.8rem 0 0.6rem 0;
+  }
+  .step-num {
+    width: 28px; height: 28px;
+    background: var(--navy); color: var(--gold-light);
+    border-radius: 50%; font-size: 0.75rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step-text {
+    font-size: 0.75rem; font-weight: 600; color: var(--navy);
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+
+  /* ── Stat cards ──────────────────────────────────────────── */
+  .stats-row { display: flex; gap: 1rem; margin: 0.5rem 0 1.5rem 0; }
+  .stat-card {
+    flex: 1; background: var(--white); border-radius: var(--radius);
+    padding: 1rem 1.2rem; border-top: 3px solid var(--navy);
+    box-shadow: 0 2px 12px rgba(13,27,42,0.08); text-align: center;
+  }
+  .stat-val {
+    font-family: 'Lora', serif; font-size: 1.7rem; font-weight: 700;
+    color: var(--navy); display: block; line-height: 1; margin-bottom: 0.3rem;
+  }
+  .stat-key {
+    font-size: 0.7rem; font-weight: 600; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+
+  /* ── Text preview ────────────────────────────────────────── */
+  .preview-wrap {
+    background: var(--white); border-radius: var(--radius);
+    border: 1px solid var(--cream-dark);
+    box-shadow: 0 2px 12px rgba(13,27,42,0.06);
+    overflow: hidden; margin-bottom: 0.5rem;
+  }
+  .preview-bar {
+    background: var(--navy); padding: 0.5rem 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .preview-bar span {
+    font-size: 0.72rem; font-weight: 600;
+    color: rgba(245,240,232,0.7); text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .preview-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .preview-text {
+    padding: 1.2rem 1.4rem; font-family: 'Lora', serif;
+    font-size: 0.87rem; line-height: 1.85; color: #2C2C3E;
+    max-height: 280px; overflow-y: auto; white-space: pre-wrap;
+  }
+
+  /* ── Divider ─────────────────────────────────────────────── */
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 1.8rem 0; opacity: 0.5;
+  }
+
+  /* ── Info / warning banners ──────────────────────────────── */
+  .info-banner {
+    background: #EBF4FF; border-left: 4px solid #4A90D9;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 0.85rem 1.1rem; font-size: 0.875rem; color: #1A3A5C; margin: 1rem 0;
+  }
+  .warn-banner {
+    background: #FFF8E6; border-left: 4px solid var(--gold);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 0.85rem 1.1rem; font-size: 0.875rem; color: var(--warn); margin: 1rem 0;
+  }
+
+  /* ── Empty state ─────────────────────────────────────────── */
+  .empty-state { text-align: center; padding: 3.5rem 2rem; color: var(--muted); }
+  .empty-state .big-icon { font-size: 4rem; display: block; margin-bottom: 1rem; opacity: 0.5; }
+  .empty-state .big-p { font-size: 1rem; font-weight: 500; color: var(--navy-mid); }
+  .empty-state .sm-p  { font-size: 0.85rem; font-weight: 300; }
+
+  /* ── Widget overrides ────────────────────────────────────── */
+  [data-testid="stFileUploader"] > div {
+    background: var(--white) !important;
+    border: 2px dashed var(--navy-soft) !important;
+    border-radius: var(--radius) !important;
+  }
+  [data-testid="stFileUploader"] > div:hover { border-color: var(--gold) !important; }
+
+  .stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%) !important;
+    color: var(--gold-light) !important; border: none !important;
+    font-weight: 600 !important; font-size: 0.95rem !important;
+    border-radius: var(--radius) !important;
+    box-shadow: 0 4px 16px rgba(13,27,42,0.25) !important;
+    transition: opacity 0.2s, transform 0.15s !important;
+  }
+  .stButton > button[kind="primary"]:hover {
+    opacity: 0.92 !important; transform: translateY(-1px) !important;
+  }
+
+  .stDownloadButton > button {
+    background: var(--white) !important; color: var(--navy) !important;
+    border: 2px solid var(--navy) !important; font-weight: 600 !important;
+    border-radius: var(--radius) !important; transition: all 0.2s !important;
+  }
+  .stDownloadButton > button:hover {
+    background: var(--navy) !important; color: var(--gold-light) !important;
+  }
+
+  audio { width: 100%; border-radius: var(--radius); margin: 0.5rem 0; }
+
+  .preview-text::-webkit-scrollbar { width: 5px; }
+  .preview-text::-webkit-scrollbar-track { background: var(--cream); }
+  .preview-text::-webkit-scrollbar-thumb { background: var(--navy-soft); border-radius: 4px; }
